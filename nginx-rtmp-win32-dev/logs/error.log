@@ -1,0 +1,29 @@
+2025/04/26 19:12:16 [notice] 100080#114664: using the "select" event method
+2025/04/26 19:12:16 [notice] 100080#114664: nginx/1.14.1
+2025/04/26 19:12:16 [info] 100080#114664: OS: 260200 build:9200, "", suite:300, type:1
+2025/04/26 19:12:16 [notice] 100080#114664: start worker processes
+2025/04/26 19:12:16 [notice] 100080#114664: start worker process 116136
+2025/04/26 19:12:17 [notice] 116136#113756: nginx/1.14.1
+2025/04/26 19:12:17 [info] 116136#113756: OS: 260200 build:9200, "", suite:300, type:1
+2025/04/26 19:12:17 [notice] 116136#113756: create thread 111284
+2025/04/26 19:12:17 [notice] 116136#113756: create thread 110500
+2025/04/26 19:12:17 [notice] 116136#113756: create thread 113956
+2025/04/26 19:13:30 [info] 116136#111284: *1 client connected '127.0.0.1'
+2025/04/26 19:13:30 [info] 116136#111284: *1 connect: app='live' args='' flashver='FMLE/3.0 (compatible; FMSc/1.0)' swf_url='rtmp://localhost/live' tc_url='rtmp://localhost/live' page_url='' acodecs=0 vcodecs=0 object_encoding=0, client: 127.0.0.1, server: 0.0.0.0:1935
+2025/04/26 19:13:30 [info] 116136#111284: *1 createStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2025/04/26 19:13:30 [info] 116136#111284: *1 publish: name='stream' args='' type=live silent=0, client: 127.0.0.1, server: 0.0.0.0:1935
+2025/04/26 19:14:40 [emerg] 107920#106348: "application" directive is not allowed here in C:\Users\User\OneDrive\Desktop\IIUM GOMBAK\Sem 6\FYP\nginx-rtmp-win32-dev/conf/nginx.conf:51
+2025/04/26 19:16:46 [notice] 111308#108332: signal process started
+2025/04/26 19:16:46 [notice] 100080#114664: reconfiguring
+2025/04/26 19:16:46 [emerg] 100080#114664: CreateDirectory() "tmp/hls" failed (3: The system cannot find the path specified)
+2025/04/26 19:18:03 [error] 116136#111284: *2 CreateFile() "C:\Users\User\OneDrive\Desktop\IIUM GOMBAK\Sem 6\FYP\nginx-rtmp-win32-dev/temp/hls/stream.m3u8" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET /hls/stream.m3u8 HTTP/1.1", host: "localhost:8080"
+2025/04/26 19:18:03 [error] 116136#111284: *2 CreateFile() "C:\Users\User\OneDrive\Desktop\IIUM GOMBAK\Sem 6\FYP\nginx-rtmp-win32-dev/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/hls/stream.m3u8"
+2025/04/26 19:19:03 [info] 116136#111284: *3 client timed out (10060: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2025/04/26 19:19:09 [error] 116136#111284: *2 CreateFile() "C:\Users\User\OneDrive\Desktop\IIUM GOMBAK\Sem 6\FYP\nginx-rtmp-win32-dev/html/viewer.html" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /viewer.html HTTP/1.1", host: "localhost:8080"
+2025/04/26 19:20:09 [info] 116136#111284: *4 client timed out (10060: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8080
+2025/04/26 19:20:46 [info] 116136#111284: *1 deleteStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2025/04/26 19:20:46 [info] 116136#111284: *1 WSARecv() failed (10053: An established connection was aborted by the software in your host machine), client: 127.0.0.1, server: 0.0.0.0:1935
+2025/04/26 19:20:46 [info] 116136#111284: *1 disconnect, client: 127.0.0.1, server: 0.0.0.0:1935
+2025/04/26 19:20:46 [info] 116136#111284: *1 deleteStream, client: 127.0.0.1, server: 0.0.0.0:1935
+2025/04/26 19:27:18 [emerg] 116088#105224: CreateDirectory() "tmp/hls" failed (3: The system cannot find the path specified)
+2025/04/27 22:23:09 [emerg] 105488#128140: CreateDirectory() "tmp/hls" failed (3: The system cannot find the path specified)
