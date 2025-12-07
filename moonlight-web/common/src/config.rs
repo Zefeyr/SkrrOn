@@ -126,5 +126,27 @@ fn default_pair_device_name() -> String {
 }
 
 fn default_streamer_path() -> String {
-    "./streamer".to_string()
+    // Prefer a streamer binary next to the current executable. This works well when
+    // both `web-server` and `streamer` are placed in the same folder (eg. `target/release`).
+    if let Ok(current_exe) = std::env::current_exe() {
+        if let Some(exe_dir) = current_exe.parent() {
+            // Try with platform-specific name first (Windows needs .exe)
+            let candidate = exe_dir.join(if cfg!(windows) { "streamer.exe" } else { "streamer" });
+            if candidate.exists() {
+                return candidate.to_string_lossy().into_owned();
+            }
+            // Try without the extension too
+            let candidate_no_ext = exe_dir.join("streamer");
+            if candidate_no_ext.exists() {
+                return candidate_no_ext.to_string_lossy().into_owned();
+            }
+        }
+    }
+
+    // Developer-friendly fallback: check target/release path for the streamer binary.
+    if cfg!(windows) {
+        "./target/release/streamer.exe".to_string()
+    } else {
+        "./streamer".to_string()
+    }
 }

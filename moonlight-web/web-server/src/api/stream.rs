@@ -190,6 +190,24 @@ pub async fn start_host(
         .await;
 
         // Spawn child
+        info!("[Stream]: launching streamer from path: {}", &config.streamer_path);
+
+        // Validate streamer path exists before trying to spawn – give a clearer error
+        if !std::path::Path::new(&config.streamer_path).exists() {
+            error!("[Stream]: streamer path does not exist: {}", &config.streamer_path);
+
+            let _ = send_ws_message(
+                &mut session,
+                StreamServerMessage::StageFailed {
+                    stage: "Launch Streamer".to_string(),
+                    error_code: -1,
+                },
+            )
+            .await;
+
+            let _ = session.close(None).await;
+            return;
+        }
         let (mut child, stdin, stdout) = match Command::new(&config.streamer_path)
             .stdin(Stdio::piped())
             .stdout(Stdio::piped())
