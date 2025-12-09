@@ -64,7 +64,7 @@ class MainApp implements Component {
         this.api = api
 
         // Moonlight text
-        this.moonlightTextElement.innerHTML = "Moonlight Web"
+        this.moonlightTextElement.innerHTML = "LightJoy - Moonlight Web (Updated)"
 
         // Actions
         this.actionElement.classList.add("actions-list")

@@ -50,7 +50,7 @@ class MainApp {
         this.gameList = null;
         this.api = api;
         // Moonlight text
-        this.moonlightTextElement.innerHTML = "Moonlight Web";
+        this.moonlightTextElement.innerHTML = "Lightjoy - Moonlight Web";
         // Actions
         this.actionElement.classList.add("actions-list");
         // Back button
