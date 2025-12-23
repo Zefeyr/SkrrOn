@@ -43,6 +43,7 @@ class MainApp {
         this.divElement = document.createElement("div");
         this.moonlightTextElement = document.createElement("h1");
         this.actionElement = document.createElement("div");
+        this.backToHomeButton = document.createElement("button");
         this.backToHostsButton = document.createElement("button");
         this.hostAddButton = document.createElement("button");
         this.settingsButton = document.createElement("button");
@@ -50,19 +51,34 @@ class MainApp {
         this.gameList = null;
         this.api = api;
         // Moonlight text
-        this.moonlightTextElement.innerHTML = "Lightjoy - Moonlight Web";
+        this.moonlightTextElement.innerHTML = "LightJoy - Moonlight Web Client";
+
+        this.divElement.classList.add("lightjoy-app-container"); // NEW
+        this.moonlightTextElement.classList.add("app-title");      // NEW
         // Actions
         this.actionElement.classList.add("actions-list");
+
+        // --- BACK TO HOME BUTTON SETUP ---
+        this.backToHomeButton.innerText = "Home";
+        this.backToHomeButton.classList.add("btn-home"); // Custom class for styling
+        this.backToHomeButton.addEventListener("click", () => {
+            window.location.href = "homepage.html"; // Redirect to homepage
+        });
         // Back button
         this.backToHostsButton.innerText = "Back";
+        this.backToHostsButton.classList.add("btn-secondary");
         this.backToHostsButton.addEventListener("click", () => this.setCurrentDisplay("hosts"));
         // Host add button
+        this.hostAddButton.innerText = "+ Add Host";             // NEW
+        this.hostAddButton.classList.add("btn-primary");         // NEW
         this.hostAddButton.classList.add("host-add");
         this.hostAddButton.addEventListener("click", this.addHost.bind(this));
         // Host list
         this.hostList = new HostList(api);
         this.hostList.addHostOpenListener(this.onHostOpen.bind(this));
         // Settings Button
+        this.settingsButton.innerText = "⚙ Settings";            // NEW
+        this.settingsButton.classList.add("btn-settings");       // NEW
         this.settingsButton.classList.add("open-settings");
         this.settingsButton.addEventListener("click", () => this.setCurrentDisplay("settings"));
         // Settings
@@ -149,7 +165,9 @@ class MainApp {
         }
         // Unmount the current display
         if (this.currentDisplay == "hosts") {
+            this.actionElement.removeChild(this.backToHomeButton);
             this.actionElement.removeChild(this.hostAddButton);
+            
             this.actionElement.removeChild(this.settingsButton);
             this.hostList.unmount(this.divElement);
         }
@@ -163,7 +181,9 @@ class MainApp {
         }
         // Mount the new display
         if (display == "hosts") {
+            this.actionElement.appendChild(this.backToHomeButton);
             this.actionElement.appendChild(this.hostAddButton);
+            
             this.actionElement.appendChild(this.settingsButton);
             this.hostList.mount(this.divElement);
             pushAppState({ display: "hosts" });
