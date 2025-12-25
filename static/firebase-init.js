@@ -2,7 +2,7 @@
 
 // Import necessary functions from the SDKs
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
+import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-analytics.js";
 import { 
     getAuth, 
@@ -44,5 +44,9 @@ export {
     createUserWithEmailAndPassword, 
     onAuthStateChanged,
     signOut,
-    signInWithPopup // Added signOut for future use on index.html
+    signInWithPopup,
+    updateProfile,
+    doc,
+    setDoc,
+    getDoc // Added signOut for future use on index.html
 };
