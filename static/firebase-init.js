@@ -2,6 +2,7 @@
 
 // Import necessary functions from the SDKs
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-analytics.js";
 import { 
     getAuth, 
@@ -10,7 +11,8 @@ import {
     onAuthStateChanged,
     signOut,
     GoogleAuthProvider,
-    signInWithPopup
+    signInWithPopup,
+    updateProfile
 } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
 
 // Your web app's Firebase configuration
@@ -31,6 +33,8 @@ const analytics = getAnalytics(app);
 
 // Initialize Firebase Authentication and export the module
 export const auth = getAuth(app);
+export const db = getFirestore(app);   // MUST EXPORT THIS
+
 
 export const googleProvider = new GoogleAuthProvider();
 
