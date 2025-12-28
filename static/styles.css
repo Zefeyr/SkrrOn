@@ -568,3 +568,16 @@ canvas.video-stream {
 .prevent-start-transition {
     transition: none;
 }
+
+/* Custom focus state for the purple theme */
+.form-control:focus {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: white;
+    border-color: #ce93d8;
+    box-shadow: 0 0 10px rgba(206, 147, 216, 0.4);
+}
+
+/* Ensure placeholder text is readable */
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
